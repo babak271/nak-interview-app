@@ -2,6 +2,7 @@
 
 namespace Domain\Database\Factories;
 
+use Domain\Content\Enums\PostStatus;
 use Domain\Content\Models\Post;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -22,7 +23,7 @@ class PostFactory extends Factory
     public function definition()
     {
         return [
-            'status' => 1,
+            'status' => PostStatus::ACTIVE,
             'title'  => $this->faker->text(100),
             'slug'   => $this->faker->slug(10),
             'body'   => $this->faker->text(400),

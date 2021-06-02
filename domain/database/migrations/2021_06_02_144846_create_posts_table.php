@@ -16,7 +16,7 @@ class CreatePostsTable extends Migration
     {
         Schema::create((new Post())->getTable(), function (Blueprint $table) {
             $table->id();
-            $table->tinyInteger('status');
+            $table->tinyInteger('status')->default(\Domain\Content\Enums\PostStatus::ACTIVE);
             $table->string('slug')->nullable();
             $table->string('title')->nullable();
             $table->text('body');

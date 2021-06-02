@@ -2,6 +2,8 @@
 
 namespace Domain\Content\Models;
 
+use BenSampo\Enum\Traits\CastsEnums;
+use Domain\Content\Enums\PostStatus;
 use Domain\Database\Factories\PostFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -9,6 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     use HasFactory;
+    use CastsEnums;
 
     protected $fillable = [
         'status',
@@ -18,7 +21,11 @@ class Post extends Model
     ];
 
     protected $attributes = [
-        'status' => 1,
+        'status' => PostStatus::ACTIVE,
+    ];
+
+    protected $casts = [
+        'status' => PostStatus::class,
     ];
 
     protected static function newFactory()
