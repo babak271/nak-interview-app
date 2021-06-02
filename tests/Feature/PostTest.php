@@ -45,4 +45,27 @@ class PostTest extends TestCase
 
         $response->assertSessionHasErrors('body');
     }
+
+    /** @test */
+    public function test_post_attributes_can_be_updated()
+    {
+        $post = Post::factory()->create();
+
+        $new_body = \Str::random(200);
+        $post->setAttribute('body', $new_body);
+
+        $response = $this->patch("/posts/$post->id/update", $post->toArray());
+
+        $response->assertStatus(200);
+        $this->assertEquals(Post::find($post->id)->body, $new_body);
+    }
+
+    /** @test */
+    public function test_body_is_required_for_updating_post()
+    {
+        $post     = Post::factory()->create();
+        $response = $this->patch("/posts/$post->id/update", \Arr::except($post->toArray(), 'body'));
+
+        $response->assertSessionHasErrors('body');
+    }
 }

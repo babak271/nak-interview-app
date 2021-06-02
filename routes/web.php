@@ -9,4 +9,5 @@ Route::get('/', function () {
 // Posts
 Route::group(['prefix' => 'posts', 'as' => 'posts.'], function () {
     Route::post('create', [\Domain\Content\Http\Controller\PostController::class, 'store']);
+    Route::patch('{post}/update', [\Domain\Content\Http\Controller\PostController::class, 'update']);
 });
