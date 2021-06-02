@@ -8,8 +8,8 @@ Route::get('/', function () {
 
 // Posts
 Route::group(['prefix' => 'posts', 'as' => 'posts.'], function () {
-    Route::post('create', [\Domain\Content\Http\Controller\PostController::class, 'store']);
-    Route::patch('{post}/update', [\Domain\Content\Http\Controller\PostController::class, 'update']);
+    Route::post('create', [\App\Content\Http\Controller\PostController::class, 'store']);
+    Route::patch('{post}/update', [\App\Content\Http\Controller\PostController::class, 'update']);
 
     Route::group(['as' => 'comments.'], function () {
         Route::post('{posts}/comments/create', [\App\Content\Http\Controller\AddCommentToPostController::class, 'store'])->name('create');

@@ -1,9 +1,9 @@
 <?php
 
-namespace Domain\Content\Http\Controller;
+namespace App\Content\Http\Controller;
 
-use Domain\Content\Http\Requests\StorePost;
-use Domain\Content\Http\Requests\UpdatePost;
+use App\Content\Http\Requests\StorePost;
+use App\Content\Http\Requests\UpdatePost;
 use Domain\Content\Models\Post;
 use Domain\Controller;
 

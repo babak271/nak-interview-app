@@ -1,11 +1,11 @@
 <?php
 
-namespace Domain\Content\Http\Requests;
+namespace App\Content\Http\Requests;
 
 use Domain\Content\Models\Post;
 use Illuminate\Foundation\Http\FormRequest;
 
-class StorePost extends FormRequest
+class UpdatePost extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -37,12 +37,9 @@ class StorePost extends FormRequest
      *
      * @return Post
      */
-    public function persist()
+    public function persist($post)
     {
-        $post = (new Post())
-            ->fill($this->all());
-
-        $post->save();
+        $post->update($this->all());
 
         return $post;
     }
