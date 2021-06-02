@@ -179,6 +179,7 @@ return [
          * Domain Service Providers...
          */
         Domain\Providers\DomainServiceProvider::class,
+        Domain\Providers\RepositoryServiceProvider::class,
 
     ],
 
