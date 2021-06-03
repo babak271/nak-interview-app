@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+//Utilities
+@import "utilities/variables";
+
+/* rtl:begin:ignore */
+
+//Vendor
+@import "vendors/fonts/fontawesome/fontawesome";
+@import "vendors/fonts/fontawesome/solid";
+@import "vendors/fonts/fontawesome/brands";
+@import "vendors/fonts/fontawesome/light";
+@import "vendors/fonts/fontawesome/regular";
+@import "vendors/fonts/fontawesome/duotone";
+@import "../../../../node_modules/bootstrap/scss/bootstrap";
+
+@import "vendors/fonts/iransans/font";
+
+@import "../../../../node_modules/animate.css/animate.compat.css";
+
+//Layout
+@import "layout/home";
+
+/* rtl:end:ignore */
