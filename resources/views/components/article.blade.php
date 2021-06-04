@@ -1,6 +1,21 @@
 <article>
-	<h2 class="blog-post-title fw-bold">{{ $post->title }} <span class="text-sm-center fw-light fs-6 text-muted">رتبه: ۴ از ۵ (۴۲)</span>
-	</h2>
+	<div class="row">
+		<div class="col-12 col-md-8">
+			<h2 class="blog-post-title fw-bold">{{ $post->title }} <span class="text-sm-center fw-light fs-6 text-muted">رتبه: ۴ از ۵ (۴۲)</span>
+			</h2>
+		</div>
+		<div class="col-12 col-md-4">
+			<form action="#">
+				<div class="row">
+					<div class="col-12">
+						<button class="w-100 btn btn-outline-danger btn-sm"
+								type="submit">@lang('actions.delete') @lang('blog.article')</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
 	<p class="blog-post-meta text-muted">{{ $post->created_at->diffForHumans() }}</p>
 
 	{!! $post->body !!}

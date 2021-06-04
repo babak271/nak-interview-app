@@ -39,7 +39,7 @@
 			<div class="col-md-6">
 				<div class="row flex-nowrap justify-content-between align-items-center mt-3">
 					<div class="col-12 text-center">
-						<a class="logo text-dark text-decoration-none fs-1" href="#">مقالات</a>
+						<a class="logo text-dark text-decoration-none fs-1" href="#">@lang('blog.blog')</a>
 					</div>
 				</div>
 				<div class="row">
