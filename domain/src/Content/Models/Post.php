@@ -34,6 +34,13 @@ class Post extends Model
         'status' => PostStatus::class,
     ];
 
+    protected static function booted()
+    {
+        static::deleting(function ($post) {
+            $post->comments()->delete();
+        });
+    }
+
     protected static function newFactory()
     {
         return PostFactory::new();
@@ -64,8 +71,8 @@ class Post extends Model
         is_null($comments) && $comments = $this->comments;
 
         return $comments->isNotEmpty()
-            ? $comments->pluck('rate')
-                ->average()
+            ? round($comments->pluck('rate')
+                ->average(), 1)
             : 0;
     }
 }

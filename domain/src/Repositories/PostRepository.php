@@ -27,7 +27,11 @@ class PostRepository extends BaseRepository implements PostRepositoryInterface
                         $include_comments = true): Collection
     {
         $query = $this->getAllHandler($status, $order);
-        $include_comments && $query->with('comments');
+
+        $include_comments && $query->with('comments', function ($query) use ($order) {
+            $order == self::ORDER_ASC && $query->oldest();
+            $order == self::ORDER_DESC && $query->latest();
+        });
 
         return $query->get();
     }
@@ -47,10 +51,10 @@ class PostRepository extends BaseRepository implements PostRepositoryInterface
     {
         switch ($order) {
             case self::ORDER_ASC:
-                $query->oldest();
+                $query->oldest('updated_at');
                 break;
             default:
-                $query->latest();
+                $query->latest('updated_at');
                 break;
         }
 
