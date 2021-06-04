@@ -4,12 +4,18 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<link rel="stylesheet" href="{{ mix('assets/css/style.css') }}">
-	<title>Laravel</title>
+	@include('front.layout.styles')
+	@stack('styles')
+
+	<title>NAK interview</title>
 
 </head>
-<body>
+<body dir="rtl">
 
-<script src="{{ mix('assets/js/script.js') }}"></script>
+@yield('content')
+
+@include('front.layout.scripts')
+@stack('scripts')
+
 </body>
 </html>
