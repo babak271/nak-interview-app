@@ -3,6 +3,7 @@
 namespace App\Content\Http\Requests;
 
 use Domain\Content\Models\Post;
+use Domain\Repositories\Contracts\PostRepositoryInterface;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StorePost extends FormRequest
@@ -39,11 +40,7 @@ class StorePost extends FormRequest
      */
     public function persist()
     {
-        $post = (new Post())
-            ->fill($this->all());
-
-        $post->save();
-
-        return $post;
+        return app(PostRepositoryInterface::class)
+            ->create($this->all());
     }
 }

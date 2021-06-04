@@ -45,29 +45,8 @@
 				<div class="row">
 					<div class="col-12">
 						<hr>
-						@php
-							$post1=new \stdClass();
-							$post1->id=1;
-							$post1->title='عنوان نمونه دو';
-							$post1->body='<p> در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>';
-							$post1->created_at=now();
 
-							$post2=new \stdClass();
-							$post2->id=2;
-							$post2->title='عنوان نمونه دو';
-							$post2->body='<p> در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>';
-							$post2->created_at=now();
-						@endphp
-
-						@foreach([$post1,$post2] as $post)
-							<x-article :post="$post"/>
-							<hr>
-						@endforeach
-						@foreach([$post1,$post2] as $post)
-							<x-article :post="$post"/>
-							<hr>
-						@endforeach
-						@foreach([$post1,$post2] as $post)
+						@foreach($articles as $post)
 							<x-article :post="$post"/>
 							<hr>
 						@endforeach

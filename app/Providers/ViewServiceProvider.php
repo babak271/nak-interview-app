@@ -7,6 +7,7 @@ use App\View\Components\CommentInput;
 use App\View\Components\CommentSingle;
 use App\View\Components\TextareaInput;
 use App\View\Components\TextInput;
+use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
@@ -30,6 +31,7 @@ class ViewServiceProvider extends ServiceProvider
      * Bootstrap services.
      *
      * @return void
+     * @throws BindingResolutionException
      */
     public function boot()
     {
