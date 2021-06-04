@@ -2,6 +2,7 @@
 
 return [
 
-    'submit' => 'ثبت ',
-    'update' => 'بروزرسانی ',
+    'submit'       => 'ثبت ',
+    'update'       => 'بروزرسانی ',
+    'submitted_at' => 'ثبت شده در ',
 ];

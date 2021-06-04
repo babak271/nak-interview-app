@@ -20,6 +20,18 @@ class TextareaInput extends Component
      * @var null
      */
     public $error_class;
+    /**
+     * @var false
+     */
+    public $isTiny;
+    /**
+     * @var null
+     */
+    public $id;
+    /**
+     * @var null
+     */
+    public $placeholder;
 
     /**
      * Create a new component instance.
@@ -28,15 +40,21 @@ class TextareaInput extends Component
      */
     public function __construct($name,
                                 $title,
+                                $id = null,
                                 $label_class = null,
                                 $textarea_class = null,
-                                $error_class = null)
+                                $error_class = null,
+                                $isTiny = false,
+                                $placeholder = '')
     {
         $this->name           = $name;
         $this->title          = $title;
+        $this->id             = $id ?? $name;
         $this->label_class    = $label_class ?? 'form-label';
         $this->textarea_class = $textarea_class ?? 'form-control';
         $this->error_class    = $error_class ?? 'invalid-feedback';
+        $this->isTiny         = $isTiny;
+        $this->placeholder    = $placeholder;
     }
 
     /**
