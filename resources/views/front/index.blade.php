@@ -15,7 +15,8 @@
 
 					<div class="row my-3 mb-5">
 						<div class="col-12">
-							<form action="#">
+							<form action="{{ route('posts.create') }}" method="post">
+								@csrf
 								<div class="row">
 									<div class="col-12">
 										<x-text-input name="title" :title="__('blog.title')"/>

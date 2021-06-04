@@ -3,6 +3,7 @@
 namespace Domain\Content\Models;
 
 use BenSampo\Enum\Traits\CastsEnums;
+use Cviebrock\EloquentSluggable\Sluggable;
 use Domain\Content\Enums\PostStatus;
 use Domain\Content\Traits\HasComments;
 use Domain\Database\Factories\PostFactory;
@@ -14,6 +15,7 @@ class Post extends Model
     use HasFactory;
     use CastsEnums;
     use HasComments;
+    use Sluggable;
 
     protected $fillable = [
         'status',
@@ -33,5 +35,19 @@ class Post extends Model
     protected static function newFactory()
     {
         return PostFactory::new();
+    }
+
+    /**
+     * Generate slug for the product.
+     *
+     * @return array
+     */
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'title',
+            ],
+        ];
     }
 }
