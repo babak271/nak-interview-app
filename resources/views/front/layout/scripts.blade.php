@@ -46,24 +46,11 @@
 				},
 				file_picker_callback: function (callback, value, meta) {
 					function showUploadError(text) {
-						swal.fire({
-							icon: "error",
-							title: 'در هنگام آپلود فایل خطایی رخ داده است',
-							text: text,
-							showConfirmButton: false,
-							showCancelButton: true,
-							cancelButtonText: 'باشه',
-						});
+						console.log(text);
 					}
 
 					function showSizeError() {
-						swal.fire({
-							icon: "error",
-							title: 'حجم فایل شما بیشتر از حجم مجاز است',
-							showConfirmButton: false,
-							showCancelButton: true,
-							cancelButtonText: 'باشه',
-						});
+						console.log(text);
 					}
 
 					function checkFileSize(file, size) {

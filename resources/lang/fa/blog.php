@@ -11,5 +11,6 @@ return [
     'your_comment'        => 'نظر شما',
     'comment_placeholder' => 'نظر خود را بنویسید',
     'rate'                => 'رتبه',
-    'out of'                => 'از',
+    'out of'              => 'از',
+    'empty'               => 'هیچ مقاله ای ثبت نشده است.',
 ];

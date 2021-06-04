@@ -2,6 +2,7 @@
 
 use App\Content\Http\Controller\AddCommentToPostController;
 use App\Content\Http\Controller\PostController;
+use App\Media\Http\Controller\MediaController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -9,15 +10,9 @@ Route::get('/', [PostController::class, 'index']);
 
 // Media
 Route::group(['prefix' => 'media/tiny', 'as' => 'media.tiny.'], function () {
-    Route::post('photo/upload', function () {
-        return null;
-    })->name('photo.upload');
-    Route::post('media/upload', function () {
-        return null;
-    })->name('media.upload');
-    Route::post('file/upload', function () {
-        return null;
-    })->name('file.upload');
+    Route::post('photo/upload', [MediaController::class, 'uploadTinyPhoto'])->name('photo.upload');
+    Route::post('media/upload', [MediaController::class, 'uploadTinyMedia'])->name('media.upload');
+    Route::post('file/upload', [MediaController::class, 'uploadTinyFile'])->name('file.upload');
 });
 
 // Posts
