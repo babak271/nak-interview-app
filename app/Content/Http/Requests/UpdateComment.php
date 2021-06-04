@@ -45,7 +45,6 @@ class UpdateComment extends FormRequest
 
         $data['extra_data'] = [CommentExtraData::RATE => $this->get('rate')];
 
-        return app(CommentRepositoryInterface::class)
-            ->update($data, $comment);
+        return \Domain\Content\Facades\Comment::update($data, $comment);
     }
 }

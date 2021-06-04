@@ -5,7 +5,6 @@ namespace App\Content\Http\Requests;
 use Domain\Content\Enums\CommentExtraData;
 use Domain\Content\Enums\CommentType;
 use Domain\Content\Models\Comment;
-use Domain\Repositories\Contracts\CommentRepositoryInterface;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreComment extends FormRequest
@@ -47,7 +46,6 @@ class StoreComment extends FormRequest
         $data['type']       = CommentType::COMMENT;
         $data['extra_data'] = [CommentExtraData::RATE => $this->get('rate')];
 
-        return app(CommentRepositoryInterface::class)
-            ->create($target_resource, $data);
+        return \Domain\Content\Facades\Comment::create($target_resource, $data);
     }
 }

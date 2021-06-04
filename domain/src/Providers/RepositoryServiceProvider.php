@@ -19,6 +19,7 @@ class RepositoryServiceProvider extends ServiceProvider
     {
         $this->app->singleton(PostRepositoryInterface::class, PostRepository::class);
         $this->app->singleton(CommentRepositoryInterface::class, CommentRepository::class);
+        $this->app->singleton('comment', CommentRepository::class);
     }
 
     /**
