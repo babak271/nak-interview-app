@@ -25,6 +25,6 @@ class Article extends Component
      */
     public function render()
     {
-        return view('components.article');
+        return view('components.app.article');
     }
 }

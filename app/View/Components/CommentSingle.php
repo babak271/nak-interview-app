@@ -25,6 +25,6 @@ class CommentSingle extends Component
      */
     public function render()
     {
-        return view('components.comment-single');
+        return view('components.app.comment-single');
     }
 }

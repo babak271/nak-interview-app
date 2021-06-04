@@ -64,6 +64,6 @@ class TextareaInput extends Component
      */
     public function render()
     {
-        return view('components.textarea-input');
+        return view('components.app.textarea-input');
     }
 }

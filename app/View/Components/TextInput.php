@@ -46,6 +46,6 @@ class TextInput extends Component
      */
     public function render()
     {
-        return view('components.text-input');
+        return view('components.app.text-input');
     }
 }

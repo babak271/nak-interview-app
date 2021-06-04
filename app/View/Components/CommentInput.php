@@ -25,6 +25,6 @@ class CommentInput extends Component
      */
     public function render()
     {
-        return view('components.comment-input');
+        return view('components.app.comment-input');
     }
 }
