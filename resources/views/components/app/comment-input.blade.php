@@ -1,7 +1,8 @@
-<form action="#">
+<form action="{{ route('posts.comments.store',$post) }}" method="post">
+	@csrf
 	<div class="row">
 		<div class="col-md-12">
-			<x-textarea-input name="comment" id="comment-{{ $post->id }}"
+			<x-textarea-input name="body" id="comment-{{ $post->id }}"
 							  :placeholder="__('blog.comment_placeholder')"
 							  label-class="form-label fs-5"
 							  :title="__('blog.your_comment')" :is-tiny="false"/>
@@ -12,27 +13,27 @@
 		{{--Derived from https://codepen.io/Souleste/pen/QXmgrV --}}
 		<div class="stars">
 			<label class="rate">
-				<input type="radio" name="rate" id="star1" value="star1">
+				<input type="radio" name="rate" id="star1" value="1">
 				<div class="face"></div>
 				<i class="far fa-star star one-star"></i>
 			</label>
 			<label class="rate">
-				<input type="radio" name="rate" id="star2" value="star2">
+				<input type="radio" name="rate" id="star2" value="2">
 				<div class="face"></div>
 				<i class="far fa-star star two-star"></i>
 			</label>
 			<label class="rate">
-				<input type="radio" name="rate" id="star3" value="star3">
+				<input type="radio" name="rate" id="star3" value="3">
 				<div class="face"></div>
 				<i class="far fa-star star three-star"></i>
 			</label>
 			<label class="rate">
-				<input type="radio" name="rate" id="star4" value="star4">
+				<input type="radio" name="rate" id="star4" value="4">
 				<div class="face"></div>
 				<i class="far fa-star star four-star"></i>
 			</label>
 			<label class="rate">
-				<input type="radio" name="rate" id="star5" value="star5">
+				<input type="radio" name="rate" id="star5" value="5">
 				<div class="face"></div>
 				<i class="far fa-star star five-star"></i>
 			</label>

@@ -52,4 +52,20 @@ class Post extends Model
             ],
         ];
     }
+
+    /**
+     * Calculate average rate of comments.
+     *
+     * @param null $comments
+     * @return mixed
+     */
+    public function getAverageRate($comments = null)
+    {
+        is_null($comments) && $comments = $this->comments;
+
+        return $comments->isNotEmpty()
+            ? $comments->pluck('rate')
+                ->average()
+            : 0;
+    }
 }

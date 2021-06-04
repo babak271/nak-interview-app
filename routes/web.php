@@ -25,7 +25,7 @@ Route::resource('posts', PostController::class)->except(['show', 'create', 'edit
 Route::group(['prefix' => 'posts', 'as' => 'posts.'], function () {
 
     Route::group(['as' => 'comments.'], function () {
-        Route::post('{posts}/comments/create', [AddCommentToPostController::class, 'store'])->name('create');
+        Route::post('{post}/comments', [AddCommentToPostController::class, 'store'])->name('store');
         Route::patch('comments/{comment}/update', [AddCommentToPostController::class, 'update'])->name('update');
     });
 });

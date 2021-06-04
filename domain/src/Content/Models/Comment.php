@@ -4,6 +4,7 @@ namespace Domain\Content\Models;
 
 use BenSampo\Enum\Traits\CastsEnums;
 use Domain\Content\Casts\CommentExtraData;
+use Domain\Content\Enums\CommentExtraData as CommentExtraDataEnum;
 use Domain\Content\Enums\CommentStatus;
 use Domain\Content\Enums\CommentType;
 use Domain\Database\Factories\CommentFactory;
@@ -11,6 +12,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+/**
+ * Class Comment
+ * @package Domain\Content\Models
+ * @property int|null rate
+ */
 class Comment extends Model
 {
     use HasFactory;
@@ -84,8 +90,13 @@ class Comment extends Model
         return $query->where('type', CommentType::COMMENT);
     }
 
-//    public function getRateAttribute()
-//    {
-//        return $this->extra_data->get(CommentExtraData::RATE()->key);
-//    }
+    public function getMaxRateAttribute()
+    {
+        return 5;
+    }
+
+    public function getRateAttribute()
+    {
+        return (int)$this->extra_data->get(CommentExtraDataEnum::RATE()->key);
+    }
 }

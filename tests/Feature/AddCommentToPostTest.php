@@ -17,9 +17,9 @@ class AddCommentToPostTest extends TestCase
         $post    = Post::factory()->create();
         $comment = Comment::factory()->make();
 
-        $response = $this->post("/posts/$post->id/comments/create", $comment->toArray());
+        $response = $this->post(route('posts.comments.store', $post), $comment->toArray());
 
-        $response->assertStatus(201);
+        $response->assertStatus(302);
         $this->assertDatabaseCount($comment->getTable(), 1);
     }
 
@@ -33,7 +33,7 @@ class AddCommentToPostTest extends TestCase
         $new_body = \Str::random(200);
         $comment->setAttribute('body', $new_body);
 
-        $response = $this->patch("/posts/comments/$comment->id/update", $comment->toArray());
+        $response = $this->patch(route('posts.comments.update', $comment), $comment->toArray());
 
         $response->assertStatus(200);
         $this->assertEquals(Comment::find($comment->id)->body, $new_body);

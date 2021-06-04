@@ -1,8 +1,8 @@
 <article>
 	<div class="row">
 		<div class="col-12 col-md-8">
-			<h2 class="blog-post-title fw-bold">{{ $post->title }} <span
-					class="text-sm-center fw-light fs-6 text-muted">رتبه: ۴ از ۵ (۴۲)</span>
+			<h2 class="blog-post-title fw-bold">{{ $post->title }} @if($post->comments->isNotEmpty())<span
+					class="text-sm-center fw-light fs-6 text-muted">@lang('blog.rate') {{ $post->getAverageRate($post->comments) }} @lang('blog.out of') {{ $post->comments->first()->maxRate }} ({{ $post->comments->count() }})</span>@endif
 			</h2>
 		</div>
 		<div class="col-12 col-md-4">

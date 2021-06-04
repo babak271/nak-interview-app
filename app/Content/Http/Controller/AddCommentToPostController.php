@@ -7,6 +7,7 @@ use App\Content\Http\Requests\StoreComment;
 use App\Content\Http\Requests\UpdateComment;
 use Domain\Content\Models\Comment;
 use Domain\Content\Models\Post;
+use Illuminate\Http\RedirectResponse;
 
 class AddCommentToPostController extends Controller
 {
@@ -15,11 +16,13 @@ class AddCommentToPostController extends Controller
      *
      * @param StoreComment $request
      * @param Post $post
-     * @return Comment
+     * @return RedirectResponse
      */
     public function store(StoreComment $request, Post $post)
     {
-        return $request->persist($post);
+        $request->persist($post);
+
+        return back();
     }
 
     /**
