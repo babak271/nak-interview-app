@@ -15,9 +15,8 @@ Route::group(['prefix' => 'media/tiny', 'as' => 'media.tiny.'], function () {
 });
 
 // Posts
+Route::resource('posts', PostController::class)->except(['show', 'create', 'edit']);
 Route::group(['prefix' => 'posts', 'as' => 'posts.'], function () {
-    Route::post('create', [PostController::class, 'store'])->name('create');
-    Route::patch('{post}/update', [PostController::class, 'update'])->name('update');
 
     Route::group(['as' => 'comments.'], function () {
         Route::post('{posts}/comments/create', [AddCommentToPostController::class, 'store'])->name('create');

@@ -59,4 +59,9 @@ class PostController extends Controller
     {
         return $request->persist($post);
     }
+
+    public function destroy(Post $post)
+    {
+
+    }
 }

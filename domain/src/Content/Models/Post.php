@@ -9,6 +9,7 @@ use Domain\Content\Traits\HasComments;
 use Domain\Database\Factories\PostFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Post extends Model
 {
@@ -16,6 +17,7 @@ class Post extends Model
     use CastsEnums;
     use HasComments;
     use Sluggable;
+    use SoftDeletes;
 
     protected $fillable = [
         'status',
