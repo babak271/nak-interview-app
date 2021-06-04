@@ -6,7 +6,8 @@
 			</h2>
 		</div>
 		<div class="col-12 col-md-4">
-			<form action="#">
+			<form action="{{ route('posts.destroy',$post) }}" method="post">
+				@csrf @method('DELETE')
 				<div class="row">
 					<div class="col-12">
 						<button class="w-100 btn btn-outline-danger btn-sm"

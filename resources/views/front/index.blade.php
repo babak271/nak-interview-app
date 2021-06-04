@@ -15,7 +15,7 @@
 
 					<div class="row my-3 mb-5">
 						<div class="col-12">
-							<form action="{{ route('posts.create') }}" method="post">
+							<form action="{{ route('posts.store') }}" method="post">
 								@csrf
 								<div class="row">
 									<div class="col-12">

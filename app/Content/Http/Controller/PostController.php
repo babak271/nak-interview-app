@@ -9,6 +9,7 @@ use Domain\Content\Models\Post;
 use Domain\Controller;
 use Domain\Repositories\Contracts\CommentRepositoryInterface;
 use Domain\Repositories\Contracts\PostRepositoryInterface;
+use Illuminate\Http\RedirectResponse;
 
 class PostController extends Controller
 {
@@ -39,7 +40,7 @@ class PostController extends Controller
      * Store a newly created post in storage.
      *
      * @param StorePost $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
     public function store(StorePost $request)
     {
@@ -60,8 +61,16 @@ class PostController extends Controller
         return $request->persist($post);
     }
 
+    /**
+     * Soft delete a post by its id.
+     *
+     * @param Post $post
+     * @return RedirectResponse
+     */
     public function destroy(Post $post)
     {
+        $this->postRepository->delete($post);
 
+        return back();
     }
 }
