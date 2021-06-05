@@ -56,10 +56,13 @@
       "@php artisan package:discover --ansi"
     ],
     "post-root-package-install": [
-      "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+      "@php -r \"file_exists('.env') || copy('.env.sqlite.example', '.env');\"",
+      "@php -r \"unlink('.env.sqlite.example');\""
     ],
     "post-create-project-cmd": [
-      "@php artisan key:generate --ansi"
+      "@php artisan key:generate --ansi",
+      "@php -r \"file_exists('database'.DIRECTORY_SEPARATOR.'interview.sqlite') || file_put_contents('database'.DIRECTORY_SEPARATOR.'interview.sqlite','');\"",
+      "@php artisan migrate"
     ],
     "test": "phpunit"
   },
