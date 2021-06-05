@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Service\Media\MediaLibraryUpload;
 use Illuminate\Support\ServiceProvider;
+use Support\Media\Contracts\Upload;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -13,7 +15,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->singleton(Upload::class, MediaLibraryUpload::class);
     }
 
     /**

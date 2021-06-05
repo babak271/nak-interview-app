@@ -13,8 +13,26 @@
 @import "vendors/fonts/fontawesome/regular";
 @import "vendors/fonts/fontawesome/duotone";
 @import "../../../../node_modules/bootstrap/scss/bootstrap";
+//@import "../../../../node_modules/tinymce/skins/content/dark/content.min.css";
+//@import "../../../../node_modules/tinymce/skins/content/default/content.min.css";
+//@import "../../../../node_modules/tinymce/skins/content/document/content.min.css";
+//@import "../../../../node_modules/tinymce/skins/content/writer/content.min.css";
+//@import "../../../../node_modules/tinymce/skins/ui/oxide/content.min.css";
+//@import "../../../../node_modules/tinymce/skins/ui/oxide/content.inline.min.css";
+//@import "../../../../node_modules/tinymce/skins/ui/oxide/content.mobile.min.css";
+//@import "../../../../node_modules/tinymce/skins/ui/oxide/skin.min.css";
+//@import "../../../../node_modules/tinymce/skins/ui/oxide/skin.mobile.min.css";
+//@import "../../../../node_modules/tinymce/skins/ui/oxide/skin.shadowdom.min.css";
+//@import "../../../../node_modules/tinymce/skins/ui/oxide-dark/skin.min.css";
+//@import "../../../../node_modules/tinymce/skins/ui/oxide-dark/skin.mobile.min.css";
+//@import "../../../../node_modules/tinymce/skins/ui/oxide-dark/skin.shadowdom.min.css";
+//@import "../../../../node_modules/tinymce/skins/ui/oxide-dark/content.min.css";
+//@import "../../../../node_modules/tinymce/skins/ui/oxide-dark/content.mobile.min.css";
+//@import "../../../../node_modules/tinymce/skins/ui/oxide-dark/content.inline.min.css";
+
 
 @import "vendors/fonts/iransans/font";
+@import "vendors/plugins/tinymce";
 
 @import "../../../../node_modules/animate.css/animate.compat.css";
 
