@@ -17,7 +17,8 @@ and all of these attempts are just for presentation.
 #### List of contents
 - [Installation](#installation)
     - [Installing using git](#installing-using-git)
-    - [Fast Installation](#fast-installation)
+    - [Fast Installation Using Composer](#fast-installation-composer)
+    - [Fast Installation Using Docker compose](#fast-installation-docker)
 - [Main Features](#main-features)
 - [Design Elements](#design-elements)
 - [Demo](#demo)
@@ -58,7 +59,7 @@ php artisan serve
 **Notice:**
 Project tests can be run by running `composer test` or`php artisan test`
 
-### <a name="fast-installation">Fast Installation</a>
+### <a name="fast-installation-composer">Fast Installation Using Composer</a>
 In this method, you don't need to create database and run migration, they
 will be run automatically.
 
@@ -74,6 +75,19 @@ composer create-project nak/interview:dev-master interview --repository-url="{\"
 cd interview && php artisan serve
 ```
 
+### <a name="fast-installation-docker">Fast Installation Using Docker compose</a>
+In this method, you don't need to create database and run migration, they
+will be run automatically.
+
+1. Run below command to run the docker compose
+```bash
+docker compose up -d
+```
+
+2. Run below command to enter the project folder and run the laravel server
+```bash
+docker compose exec app composer install && docker compose exec app composer post-docker-install && docker compose exec app php artisan serve --host="0.0.0.0"
+```
 
 ## <a name="main-features">Main features</a>
 
